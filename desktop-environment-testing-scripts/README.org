@@ -1,0 +1,15 @@
+* Desktop Environment Testing Scripts
+
+** Introduction: 
+This experient is used to test out the Smith-Pad-OS-Shell desktop environment using
+the following dependencies that are used. 
+
+** Systemd
+Systemd service, Followed by the shell-php.service file, allows php to automatically 
+start upon every boot.
+
+
+** xsessions
+
+Xsessions service. Followed by the shell.desktop file, allows chromium --kiosk mode to automatically be launched to display the Smith-Pad-OS-Shell. It will also startup openbox
+for displaying xwindow for apps.
