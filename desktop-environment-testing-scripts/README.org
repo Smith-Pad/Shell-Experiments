@@ -1,15 +1,74 @@
 * Desktop Environment Testing Scripts
 
 ** Introduction: 
-This experient is used to test out the Smith-Pad-OS-Shell desktop environment using
-the following dependencies that are used. 
+This experient is used to test out the Smith-Pad-OS-Shell desktop
+environment using the following dependencies that are used.
 
 ** Systemd
-Systemd service, Followed by the shell-php.service file, allows php to automatically 
-start upon every boot.
+Systemd service, Followed by the shell-php.service file, allows
+php to automatically start upon every boot.
 
 
 ** xsessions
 
-Xsessions service. Followed by the shell.desktop file, allows chromium --kiosk mode to automatically be launched to display the Smith-Pad-OS-Shell. It will also startup openbox
-for displaying xwindow for apps.
+Xsessions service. Followed by the shell.desktop file, allows
+chromium --kiosk mode to automatically be launched to display
+the Smith-Pad-OS-Shell. It will also startup openbox for
+displaying xwindow for apps.
+
+
+** Dependencies and Requirements
+
+
+- Arch Linux
+
+- ungoogled-chromium
+  - yay -S ungoogled-chromium-bin
+
+- php
+  - sudo pacman -S php
+
+- python
+  - By default, python is installed on Arch Linux
+
+
+** Before you begin:
+Before you begin, please make sure you are in root. If you are
+not in root, please type this command to be in root.
+
+#+begin_src shell
+sudo su
+#+end_src
+
+** Instructions:
+
+Here are instructions to get the shell working
+
+** Number-1
+Copy the systemd service daemon to `etc/systemd/system`
+
+#+begin_src shell
+cd systemd
+cp shell-php.service /etc/systemd/system
+
+#+end_src
+
+** Number-2
+Copy the xsessions file to `/usr/share/xsessions`
+#+begin_src shell
+cd xsessions
+cp shell.desktop /usr/share/xsessions/
+#+end_src
+
+** After that:
+You need to put this command to enable and start the shell-php.service
+daemon allowing php to start everytime the system boots.
+#+begin_src shell
+systemctl enable shell-php.service
+systemctl start shell-php.service
+#+end_src
+
+** Reboot the system
+#+begin_src shell
+reboot
+#+end_src
